@@ -24,6 +24,7 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'eiginn/netrw'
 Plugin 'kana/vim-textobj-user'
 Plugin 'jceb/vim-textobj-uri'
+Plugin 'mattn/vim-sqlfmt'
 
 call vundle#end()
 filetype plugin indent on
