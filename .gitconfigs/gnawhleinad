@@ -1,0 +1,17 @@
+[push]
+	default = simple
+[credential]
+	helper = osxkeychain
+[user]
+	name = Daniel Hwang
+	email = danielleehwang@gmail.com
+	signingkey = D30D7A5C6B10EBBF1B98E2B81549A1AEFC76982F
+[commit]
+	gpgsign = true
+[github]
+	user = gnawhleinad
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

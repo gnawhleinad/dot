@@ -1,0 +1,12 @@
+[include]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/gnawhleinad
+
+[includeIf "gitdir:~/code/github/"]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/github
+[includeIf "gitdir:~/code/githubcustomers/"]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/github
+[includeIf "gitdir:~/code/ghe.io/"]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/github
+
+[includeIf "gitdir:~/code/dangerdevices/"]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/dangerdevices
