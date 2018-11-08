@@ -10,3 +10,5 @@
 
 [includeIf "gitdir:~/code/dangerdevices/"]
         path = ~/code/gnawhleinad/dot/.gitconfigs/dangerdevices
+[protocol]
+	version = 2
