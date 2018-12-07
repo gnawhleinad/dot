@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -32,7 +32,7 @@ alias mvim="mvim -v"
 export CODE=$HOME/code
 
 export GOPATH=$CODE/go
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin
 
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
 
