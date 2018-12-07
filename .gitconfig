@@ -5,6 +5,8 @@
         path = ~/code/gnawhleinad/dot/.gitconfigs/github
 [includeIf "gitdir:~/code/githubcustomers/"]
         path = ~/code/gnawhleinad/dot/.gitconfigs/github
+[includeIf "gitdir:~/code/githubpartners/"]
+        path = ~/code/gnawhleinad/dot/.gitconfigs/github
 [includeIf "gitdir:~/code/ghe.io/"]
         path = ~/code/gnawhleinad/dot/.gitconfigs/github
 
