@@ -25,6 +25,7 @@ Plugin 'eiginn/netrw'
 Plugin 'kana/vim-textobj-user'
 Plugin 'jceb/vim-textobj-uri'
 Plugin 'mattn/vim-sqlfmt'
+Plugin 'tyru/open-browser.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,7 +54,8 @@ set laststatus=2
 
 let g:ackprg = 'ag --vimgrep'
 
-let g:netrw_http_cmd  = 'open'
-nnoremap gx :normal mxviugx<Esc>`x
+let g:netrw_nogx = 1
+nmap gx <Plug>(openbrowser-smart-search)
+vmap gx <Plug>(openbrowser-smart-search)
 
 set clipboard=unnamed
