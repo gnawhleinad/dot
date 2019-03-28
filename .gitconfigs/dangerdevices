@@ -1,17 +1,8 @@
-[push]
-	default = simple
-[credential]
-	helper = osxkeychain
 [user]
 	name = Daniel Hwang
 	email = daniel@dangerdevices.com
-	signingkey = E7583AB42540EC0CB26F8A34334F2F99AB9698A1
+	signingkey = F1875541DFF229EC
 [commit]
 	gpgsign = true
 [github]
 	user = gnawhleinad
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
