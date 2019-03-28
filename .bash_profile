@@ -41,6 +41,8 @@ if [[ "$HOSTNAME" == "vader" ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 elif [[ "$HOSTNAME" == "snoke" ]]; then
   export PS1='●~*: \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
+elif [[ "$HOSTNAME" == "hodor" ]]; then
+  export PS1='⊿: \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 fi
 
 export HISTCONTROL=ignorespace
