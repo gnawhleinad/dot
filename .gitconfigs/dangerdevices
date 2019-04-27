@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Hwang
 	email = daniel@dangerdevices.com
-	signingkey = F1875541DFF229EC
+	signingkey = AD8C3F38891385AE
 [commit]
 	gpgsign = true
 [github]
