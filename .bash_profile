@@ -73,4 +73,12 @@ lpasscp() {
 }
 command -v lpass >/dev/null 2>&1 && alias lpasscp=lpasscp
 
+git_force_reset() {
+  git clean -dffx
+  git submodule foreach --recursive git clean -dffx
+  git reset --hard
+  git submodule foreach --recursive git reset --hard
+  git submodule update --init --recursive
+}
+
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
