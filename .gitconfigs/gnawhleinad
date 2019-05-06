@@ -1,7 +1,7 @@
 [user]
 	name = Daniel Hwang
 	email = danielleehwang@gmail.com
-	signingkey = CF8F614CB99EE70C
+	signingkey = 48843CA246725F77
 [commit]
 	gpgsign = true
 [github]
