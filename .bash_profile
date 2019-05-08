@@ -11,6 +11,10 @@ get_path() {
   echo "${HOMEBREW_PREFIX}/opt/${1}"
 }
 
+if exists bash-completion; then
+  . $(get_path bash-completion)/etc/profile.d/bash_completion.sh
+fi
+
 if exists git; then
   . $(get_path git)/etc/bash_completion.d/git-completion.bash
   . $(get_path git)/etc/bash_completion.d/git-prompt.sh
