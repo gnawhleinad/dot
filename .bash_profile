@@ -66,6 +66,7 @@ if exists golang; then
 fi
 
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
+command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash bash)"
 
 if exists gnupg; then
   if [ -z "$(pgrep gpg-agent)" ]; then
