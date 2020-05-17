@@ -98,6 +98,7 @@ git_force_reset() {
   git submodule foreach --recursive git reset --hard
   git submodule update --init --recursive
 }
+alias git-force-reset=git_force_reset
 
 if [[ -e "$HOME/.ssh/config" ]]; then
   complete -o "default" \
