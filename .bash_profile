@@ -81,6 +81,16 @@ lpasscp() {
 }
 command -v lpass >/dev/null 2>&1 && alias lpasscp=lpasscp
 
+lpassgen() {
+  len=$1
+  name=$2
+  site=${3:-"https://${name}"}
+  user=${4:-$(git config --get user.email)}
+  printf "Username: ${user}\nPassword: $(pwgen --secure --symbols ${len} 1)\nURL: ${site}" | \
+    lpass add --non-interactive --sync now $name
+}
+command -v lpass >/dev/null 2>&1 && alias lpassgen=lpassgen
+
 git_force_reset() {
   git clean -dffx
   git submodule foreach --recursive git clean -dffx
