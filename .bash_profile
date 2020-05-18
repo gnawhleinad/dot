@@ -100,6 +100,16 @@ git_force_reset() {
 }
 alias git-force-reset=git_force_reset
 
+mdquote() {
+  pbpaste | awk '{ print "> " $0 }'
+}
+
+mdquotecode() {
+  mdquote | sed '1i\
+> ```
+' | echo -e "$(cat -)\n"'> ```'
+}
+
 if [[ -e "$HOME/.ssh/config" ]]; then
   complete -o "default" \
            -o "nospace" \
