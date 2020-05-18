@@ -60,14 +60,15 @@ fi
 
 export CODE=$HOME/code
 
-if exists golang; then
-  export GOPATH=$CODE/go
-  export PATH=$PATH:$GOPATH/bin:/usr/local/opt/go/libexec/bin
-fi
-
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
 command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash bash)"
 command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init - --no-rehash bash)"
+
+if command -v goenv >/dev/null 2>&1; then
+  eval "$(goenv init - --no-rehash bash)"
+  export PATH="$GOROOT/bin:$PATH"
+  export PATH="$PATH:$GOPATH/bin"
+fi
 
 if exists gnupg; then
   if [ -z "$(pgrep gpg-agent)" ]; then
