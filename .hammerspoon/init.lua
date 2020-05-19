@@ -3,7 +3,7 @@ local grid = require "hs.grid"
 local window = require "hs.window"
 local screen = require "hs.screen"
 
-grid.GRIDWIDTH = 2
+grid.GRIDWIDTH = 8
 grid.GRIDHEIGHT = 2
 
 window.animationDuration = 0
@@ -15,8 +15,14 @@ local function push_window(d)
     local y = 0
     local w = grid.GRIDWIDTH/2
     local h = grid.GRIDHEIGHT
+    local cell = grid.get(win)
 
     if d == 'left' then
+      if cell.w == grid.GRIDWIDTH/2 then
+        w = grid.GRIDWIDTH*(5/8)
+      else
+        w = grid.GRIDWIDTH/2
+      end
       x = 0
     elseif d == 'down' then
       y = grid.GRIDHEIGHT/2
@@ -27,7 +33,13 @@ local function push_window(d)
       w = grid.GRIDWIDTH
       h = grid.GRIDHEIGHT/2
     elseif d == 'right' then
-      x = grid.GRIDWIDTH-1
+      if cell.w == grid.GRIDWIDTH/2 then
+        x = grid.GRIDWIDTH-5
+        w = grid.GRIDWIDTH*(5/8)
+      else
+        x = grid.GRIDWIDTH/2
+        w = grid.GRIDWIDTH/2
+      end
     end
 
     grid.adjustWindow(function(f)
