@@ -19,6 +19,8 @@ local function push_window(d)
 
     if d == 'left' then
       if cell.w == grid.GRIDWIDTH/2 then
+        w = grid.GRIDWIDTH*(3/8)
+      elseif cell.w == grid.GRIDWIDTH*(3/8) then
         w = grid.GRIDWIDTH*(5/8)
       else
         w = grid.GRIDWIDTH/2
@@ -34,6 +36,9 @@ local function push_window(d)
       h = grid.GRIDHEIGHT/2
     elseif d == 'right' then
       if cell.w == grid.GRIDWIDTH/2 then
+        x = grid.GRIDWIDTH-3
+        w = grid.GRIDWIDTH*(3/8)
+      elseif cell.w == grid.GRIDWIDTH*(3/8) then
         x = grid.GRIDWIDTH-5
         w = grid.GRIDWIDTH*(5/8)
       else
