@@ -70,6 +70,8 @@ if command -v goenv >/dev/null 2>&1; then
   export PATH="$PATH:$GOPATH/bin"
 fi
 
+exists rustup-init && export PATH="$HOME/.cargo/bin:$PATH"
+
 if exists gnupg; then
   if [ -z "$(pgrep gpg-agent)" ]; then
     eval "$(gpg-agent --daemon)"
