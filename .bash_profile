@@ -66,6 +66,8 @@ command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init - --no-rehash bash)"
 
 if command -v goenv >/dev/null 2>&1; then
   eval "$(goenv init - --no-rehash bash)"
+  export GOROOT=$(goenv prefix)
+  export GOPATH="${HOME}/go/$(goenv version-name)"
   export PATH="$GOROOT/bin:$PATH"
   export PATH="$PATH:$GOPATH/bin"
 fi
