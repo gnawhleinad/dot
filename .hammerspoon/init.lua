@@ -47,8 +47,11 @@ local function push_window(d)
           x = grid.GRIDWIDTH/2
         elseif w == grid.GRIDWIDTH*(3/8) then
           x = grid.GRIDWIDTH-3
-        else
+        elseif w == grid.GRIDWIDTH*(5/8) then
           x = grid.GRIDWIDTH-5
+        else
+          x = grid.GRIDWIDTH/2
+          w = grid.GRIDWIDTH/2
         end
       elseif cell.w == grid.GRIDWIDTH/2 then
         x = grid.GRIDWIDTH-3
