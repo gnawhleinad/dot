@@ -18,7 +18,13 @@ local function push_window(d)
     local cell = grid.get(win)
 
     if d == 'left' then
-      if cell.w == grid.GRIDWIDTH/2 then
+      if cell.x == grid.GRIDWIDTH/2 then
+        w = grid.GRIDWIDTH/2
+      elseif cell.x == grid.GRIDWIDTH*(5/8) then
+        w = grid.GRIDWIDTH*(3/8)
+      elseif cell.x == grid.GRIDWIDTH*(3/8) then
+        w = grid.GRIDWIDTH*(5/8)
+      elseif cell.w == grid.GRIDWIDTH/2 then
         w = grid.GRIDWIDTH*(3/8)
       elseif cell.w == grid.GRIDWIDTH*(3/8) then
         w = grid.GRIDWIDTH*(5/8)
@@ -35,7 +41,16 @@ local function push_window(d)
       w = grid.GRIDWIDTH
       h = grid.GRIDHEIGHT/2
     elseif d == 'right' then
-      if cell.w == grid.GRIDWIDTH/2 then
+      if cell.x == 0 then
+        w = cell.w
+        if w == grid.GRIDWIDTH/2 then
+          x = grid.GRIDWIDTH/2
+        elseif w == grid.GRIDWIDTH*(3/8) then
+          x = grid.GRIDWIDTH-3
+        else
+          x = grid.GRIDWIDTH-5
+        end
+      elseif cell.w == grid.GRIDWIDTH/2 then
         x = grid.GRIDWIDTH-3
         w = grid.GRIDWIDTH*(3/8)
       elseif cell.w == grid.GRIDWIDTH*(3/8) then
