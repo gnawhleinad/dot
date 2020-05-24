@@ -91,7 +91,7 @@ lpassgen() {
   name=$2
   site=${3:-"https://$(basename ${name})"}
   user=${4:-$(git config --get user.email)}
-  printf "Username: ${user}\nPassword: $(pwgen --secure --symbols ${len} 1)\nURL: ${site}" | \
+  printf -- "Username: %s\nPassword: %s\nURL: %s" "${user}" "$(pwgen --secure --symbols ${len} 1)" "${site}" | \
     lpass add --non-interactive --sync now $name
 }
 command -v lpass >/dev/null 2>&1 && alias lpassgen=lpassgen
