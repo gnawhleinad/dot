@@ -74,6 +74,10 @@ fi
 
 exists rustup-init && export PATH="$HOME/.cargo/bin:$PATH"
 
+[ -f ~/.config/tabtab/serverless.bash ] && . ~/.config/tabtab/serverless.bash
+[ -f ~/.config/tabtab/sls.bash ] && . ~/.config/tabtab/sls.bash
+[ -f ~/.config/tabtab/slss.bash ] && . ~/.config/tabtab/slss.bash
+
 if exists gnupg; then
   if [ -z "$(pgrep gpg-agent)" ]; then
     eval "$(gpg-agent --daemon)"
