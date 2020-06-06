@@ -14,3 +14,17 @@ vim-go: ~/.vim/bundle/vim-go
 	cd $<; \
 	  git fetch origin v1.23; \
 	  git checkout FETCH_HEAD
+
+.PHONY: .bash_profile
+.bash_profile:
+	if [[ "${OSTYPE}" == "darwin" ]]; then \
+		rm -f ${HOME}/$@ ; \
+		ln -s $(realpath osx/$@) ${HOME}/$@ ; \
+	fi
+
+.PHONY: .bashrc
+.bashrc:
+	if [[ -f /etc/arch-release ]]; then \
+		rm -f ${HOME}/$@ ; \
+		ln -s $(realpath arch/$@) ${HOME}/$@ ; \
+	fi
