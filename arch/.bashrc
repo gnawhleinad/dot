@@ -58,19 +58,31 @@ export HISTCONTROL=ignorespace
 
 export CODE=$HOME/code
 
-exists rbenv && eval "$(rbenv init - --no-rehash bash)"
-exists pyenv && eval "$(pyenv init - --no-rehash bash)"
-exists nodenv && eval "$(nodenv init - --no-rehash bash)"
+if [[ -d ~/.rbenv ]]; then
+  export PATH="${HOME}/.rbenv/bin:${PATH}"
+  eval "$(rbenv init - --no-rehash bash)"
+fi
 
-if exists goenv; then
+if [[ -d ~/.goenv ]]; then
+  export PYENV_ROOT="${HOME}/.pyenv"
+  export PATH="${PYENV_ROOT}/bin:${PATH}"
+  eval "$(pyenv init - --no-rehash bash)"
+fi
+
+if [[ -d ~/.nodenv ]]; then
+  export PATH="${HOME}/.nodenv/bin:${PATH}"
+  eval "$(nodenv init - --no-rehash bash)"
+fi
+
+if [[ -d ~/.goenv ]]; then
+  export GOENV_ROOT="${HOME}/.goenv"
+  export PATH="${GOENV_ROOT}/bin:${PATH}"
   eval "$(goenv init - --no-rehash bash)"
   export GOROOT=$(goenv prefix)
   export GOPATH="${HOME}/go/$(goenv version-name)"
   export PATH="$GOROOT/bin:$PATH"
   export PATH="$PATH:$GOPATH/bin"
 fi
-
-exists rustup-init && export PATH="$HOME/.cargo/bin:$PATH"
 
 [ -f ~/.config/tabtab/serverless.bash ] && . ~/.config/tabtab/serverless.bash
 [ -f ~/.config/tabtab/sls.bash ] && . ~/.config/tabtab/sls.bash
