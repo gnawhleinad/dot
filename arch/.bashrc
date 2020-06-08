@@ -3,6 +3,8 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
+export EDITOR=vim
+
 exists() {
   local cmd="$1"
   command -v "${cmd}" >/dev/null 2>&1
