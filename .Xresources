@@ -1,0 +1,8 @@
+URxvt.meta: true
+
+URxvt.font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=true
+URxvt.boldFont: xft:DejaVu Sans Mono:size=11:antialias=true:bold:hinting=true
+URxvt.italicFont: xft:DejaVu Sans Mono:size=11:antialias=true:italic:hinting=tru
+URxvt.bolditalicFont: xft:DejaVu Sans Mono:size=11:antialias=true:bold:italic:hinting=true
+
+URxvt.urlLauncher: firefox
