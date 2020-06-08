@@ -40,3 +40,12 @@ vim-go: ~/.vim/bundle/vim-go
 		rm -f ${HOME}/$@; \
 		ln -s $(realpath arch/$@) ${HOME}/$@; \
 	fi
+
+.PHONY: .gitconfig
+.gitconfig:
+	rm -f ${HOME}/$@; \
+	if [[ "${OSTYPE}" == "darwin" ]]; then \
+		ln -s $(realpath osx/$@) ${HOME}/$@; \
+	elif [[ -f /etc/arch-release ]]; then \
+		ln -s $(realpath arch/$@) ${HOME}/$@; \
+	fi

@@ -1,7 +1,7 @@
 [push]
 	default = simple
 [credential]
-	helper = osxkeychain
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 [protocol]
 	version = 2
 [filter "lfs"]
@@ -11,7 +11,7 @@
 	required = true
 
 [include]
-        path = ~/code/gnawhleinad/dot/.gitconfigs/gnawhleinad
+        path = ~/code/gnawhleinad/dot/osx/.gitconfigs/gnawhleinad
 
 [includeIf "gitdir:~/code/dangerdevices/"]
-        path = ~/code/gnawhleinad/dot/.gitconfigs/dangerdevices
+        path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
