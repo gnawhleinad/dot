@@ -1,0 +1,14 @@
+URxvt.meta: true
+
+URxvt.font: xft:DejaVu Sans Mono:size=11:antialias=true:hinting=true
+URxvt.boldFont: xft:DejaVu Sans Mono:size=11:antialias=true:bold:hinting=true
+URxvt.italicFont: xft:DejaVu Sans Mono:size=11:antialias=true:italic:hinting=tru
+URxvt.bolditalicFont: xft:DejaVu Sans Mono:size=11:antialias=true:bold:italic:hinting=true
+
+URxvt.urlLauncher: firefox
+
+URxvt.perl-ext-common: default,matcher,clipboard
+
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste

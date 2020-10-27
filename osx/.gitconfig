@@ -1,0 +1,18 @@
+[push]
+	default = simple
+[pull]
+	rebase = false
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+[protocol]
+	version = 2
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[include]
+        path = ~/code/gnawhleinad/dot/osx/.gitconfigs/gnawhleinad
+[includeIf "gitdir:~/code/dangerdevices/"]
+        path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
