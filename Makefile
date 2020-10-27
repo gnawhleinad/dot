@@ -5,7 +5,7 @@ vundle: ~/.vimrc
 .PHONY: youcompleteme
 youcompleteme: ~/.vim/bundle/YouCompleteMe
 	cd $<; \
-	  python install.py \
+	  python3 install.py \
 	    --clangd-completer \
 	    --ts-completer \
 	    --rust-completer
