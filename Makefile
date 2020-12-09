@@ -14,7 +14,7 @@ youcompleteme: ~/.vim/bundle/YouCompleteMe
 command-t: ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
 	cd $<; \
 	  make clean; \
-	  if [[ "${OSTYPE}" =~ darwin.* ]]; then \
+	  if [[ "$${OSTYPE}" =~ darwin.* ]]; then \
 	    $$(brew --prefix ruby@2.7)/bin/ruby extconf.rb; \
 	  elif [[ -f /etc/arch-release ]]; then \
 	    ruby extconf.rb; \
@@ -29,7 +29,7 @@ vim-go: ~/.vim/bundle/vim-go
 
 .PHONY: .bash_profile
 .bash_profile:
-	if [[ "${OSTYPE}" =~ darwin.* ]]; then \
+	if [[ "$${OSTYPE}" =~ darwin.* ]]; then \
 		rm -f ${HOME}/$@; \
 		ln -s $(realpath osx/$@) ${HOME}/$@; \
 	fi
