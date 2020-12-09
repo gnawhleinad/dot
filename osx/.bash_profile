@@ -26,11 +26,7 @@ if exists git; then
   GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
-if exists youtube-dl; then
-  . $(get_path youtube-dl)/libexec/etc/bash_completion.d/youtube-dl.bash-completion
-fi
-
-for b in ag googler hub lastpass-cli; do
+for b in ag googler hub lastpass-cli youtube-dl; do
   ! exists $b && continue
 
   case $b in
@@ -38,6 +34,7 @@ for b in ag googler hub lastpass-cli; do
     googler)      bc="googler-completion.bash" ;;
     hub)          bc="hub.bash_completion.sh" ;;
     lastpass-cli) bc="lpass_bash_completion" ;;
+    youtube-dl)   bc="youtube-dl.bash-completion" ;;
     *)            continue ;;
   esac
 
