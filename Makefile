@@ -36,7 +36,10 @@ vim-go: ~/.vim/bundle/vim-go
 
 .PHONY: .bashrc
 .bashrc:
-	if [[ -f /etc/arch-release ]]; then \
+	if [[ "$${OSTYPE}" =~ darwin.* ]]; then \
+		rm -f ${HOME}/$@; \
+		ln -s $(realpath osx/$@) ${HOME}/$@; \
+	elif [[ -f /etc/arch-release ]]; then \
 		rm -f ${HOME}/$@; \
 		ln -s $(realpath arch/$@) ${HOME}/$@; \
 	fi

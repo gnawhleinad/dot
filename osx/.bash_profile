@@ -26,7 +26,7 @@ if exists git; then
   GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
-for b in ag googler hub lastpass-cli youtube-dl; do
+for b in ag googler hub lastpass-cli tab youtube-dl; do
   ! exists $b && continue
 
   case $b in
@@ -34,6 +34,7 @@ for b in ag googler hub lastpass-cli youtube-dl; do
     googler)      bc="googler-completion.bash" ;;
     hub)          bc="hub.bash_completion.sh" ;;
     lastpass-cli) bc="lpass_bash_completion" ;;
+    tab)          bc="tab" ;;
     youtube-dl)   bc="youtube-dl.bash-completion" ;;
     *)            continue ;;
   esac
