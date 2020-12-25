@@ -60,3 +60,7 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 set clipboard=unnamed
+
+if has('gui_running')
+    set guioptions=m,T
+endif
