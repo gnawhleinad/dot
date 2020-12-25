@@ -46,6 +46,10 @@ for b in ag googler; do
   source_bash_completion "${bc}" "${s}"
 done
 
+if exists tab; then
+  . ~/.local/share/tab/completion/tab.bash
+fi
+
 if [[ "$HOSTNAME" == "vader" ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 elif [[ "$HOSTNAME" == "snoke" ]]; then
