@@ -15,7 +15,7 @@ command-t: ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
 	cd $<; \
 	  make clean; \
 	  if [[ "$${OSTYPE}" =~ darwin.* ]]; then \
-	    $$(brew --prefix ruby@2.7)/bin/ruby extconf.rb; \
+	    $$(brew --prefix ruby@3.0)/bin/ruby extconf.rb; \
 	  elif [[ -f /etc/arch-release ]]; then \
 	    ruby extconf.rb; \
 	  fi; \
