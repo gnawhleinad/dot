@@ -1,0 +1,3 @@
+[ -z $TAB ] && exit
+
+. ~/.bashrc
