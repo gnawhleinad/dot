@@ -3,4 +3,4 @@
 set -euo pipefail
 
 cd /Applications/qutebrowser.app/Contents/MacOS/ &&\
-  ./qutebrowser
+  ./qutebrowser "$@"
