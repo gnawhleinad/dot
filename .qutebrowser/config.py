@@ -8,4 +8,4 @@ c.url.searchengines = {
 }
 
 c.editor.command = ["mvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
-config.bind("e", "open-editor", mode="insert")
+config.bind("<Ctrl-e>", "open-editor", mode="insert")
