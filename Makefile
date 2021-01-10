@@ -9,6 +9,12 @@ command-t: ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
 	  fi; \
 	  make
 
+.PHONY: qutebrowser
+qutebrowser:
+	if [[ -f /etc/arch-release ]]; then \
+		cp .qutebrowser/config.py ~/.config/qutebrowser/; \
+	fi
+
 .PHONY: vim-go
 vim-go: ~/.vim/bundle/vim-go
 	cd $<; \
