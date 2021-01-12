@@ -129,3 +129,5 @@ if [[ -e "$HOME/.ssh/config" ]]; then
 fi
 
 alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+
+eval "$(starship init bash)"

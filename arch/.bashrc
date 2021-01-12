@@ -142,3 +142,5 @@ if [[ -e "$HOME/.ssh/config" ]]; then
     grep -v "[?*]" | cut -d " " -f2 | \
     tr ' ' '\n')" scp sftp ssh
 fi
+
+eval "$(starship init bash)"
