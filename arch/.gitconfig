@@ -14,6 +14,7 @@
 
 [include]
         path = ~/code/gnawhleinad/dot/arch/.gitconfigs/gnawhleinad
-
+[includeIf "gitdir:~/code/chwayatyun/"]
+        path = ~/code/gnawhleinad/dot/arch/.gitconfigs/chwayatyun
 [includeIf "gitdir:~/code/dangerdevices/"]
         path = ~/code/gnawhleinad/dot/arch/.gitconfigs/dangerdevices
