@@ -1,3 +1,5 @@
+DIR="$(cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" >/dev/null 2>&1 && pwd)"
+
 export PATH=/usr/local/opt/yq@3/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export CLICOLOR=1
@@ -95,7 +97,14 @@ lpassgen() {
   len=$1
   name=$2
   site=${3:-"https://$(basename ${name})"}
-  user=${4:-$(git config --get user.email)}
+
+  check="${DIR}/.gitconfigs/$(dirname ${name})"
+  if [ -f "${check}" ]; then
+    user=${4:-$(git config --file "${check}" --get user.email)}
+  else
+    user=${4:-$(git config --get user.email)}
+  fi
+
   printf -- "Username: %s\nPassword: %s\nURL: %s" "${user}" "$(pwgen --secure --symbols ${len} 1)" "${site}" | \
     lpass add --non-interactive --sync now $name
 }
