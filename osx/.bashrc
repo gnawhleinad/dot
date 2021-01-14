@@ -1,3 +1,2 @@
-[ -z $TAB ] && exit
-
-. ~/.bash_profile
+[ -n $TAB ] && \
+  . ~/.bash_profile

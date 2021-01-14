@@ -1,3 +1,2 @@
-[ -z $TAB ] && exit
-
-. ~/.bashrc
+[ -n $TAB ] && \
+  . ~/.bashrc
