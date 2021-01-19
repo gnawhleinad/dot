@@ -1,0 +1,10 @@
+tab: vader
+doc: vader
+
+workspace:
+  - workspace: code/dangerdevices
+  - workspace: code/chwayatyun
+  - tab: browser
+  - tab: scratch
+
+allow_new: false
