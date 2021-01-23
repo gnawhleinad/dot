@@ -64,3 +64,5 @@ set clipboard=unnamed
 if has('gui_running')
     set guioptions=m,T
 endif
+
+nnoremap <S-t> :vertical rightb terminal<CR>
