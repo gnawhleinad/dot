@@ -1,0 +1,25 @@
+IMAPAccount daniel@chwayatyun.com
+Host imap.fastmail.com
+Port 993
+User daniel@chwayatyun.com
+PassCmd "security find-generic-password -s daniel@chwayatyun.com -w"
+SSLType IMAPS
+SSLVersions TLSv1.2
+
+IMAPStore fastmail.com
+Account daniel@chwayatyun.com
+
+MaildirStore daniel@chwayatyun.com
+Path ~/.mail/daniel@chwayatyun.com/
+Inbox ~/.mail/daniel@chwayatyun.com/inbox
+SubFolders Verbatim
+
+Channel daniel@chwayatyun.com
+Master :fastmail.com:
+Slave :daniel@chwayatyun.com:
+Patterns *
+Expunge None
+CopyArrivalDate yes
+Sync All
+Create Slave
+SyncState *

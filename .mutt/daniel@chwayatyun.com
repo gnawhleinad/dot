@@ -1,0 +1,8 @@
+set folder="~/.mail/daniel@chwayatyun.com/"
+set realname="Daniel Hwang"
+set from="daniel@chwayatyun.com"
+set spoolfile="+/inbox"
+set postponed="+/Drafts"
+set header_cache="+/cache/headers"
+set message_cachedir="+/cache/messages"
+set certificate_file="+/cache/certificates"
