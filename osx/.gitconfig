@@ -18,3 +18,5 @@
         path = ~/code/gnawhleinad/dot/osx/.gitconfigs/chwayatyun
 [includeIf "gitdir:~/code/dangerdevices/"]
         path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
+[includeIf "gitdir:~/code/dd-experiment-626/"]
+        path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
