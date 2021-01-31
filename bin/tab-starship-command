@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+tab --starship | sed -e 's,^tab ,,' -e 's,/,,'
