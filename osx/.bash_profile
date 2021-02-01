@@ -33,6 +33,7 @@ for b in ag googler hub lastpass-cli tab youtube-dl; do
 
   case $b in
     ag)           bc="ag.bashcomp.sh" ;;
+    gh)           bc="gh" ;;
     googler)      bc="googler-completion.bash" ;;
     hub)          bc="hub.bash_completion.sh" ;;
     lastpass-cli) bc="lpass_bash_completion" ;;
