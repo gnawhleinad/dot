@@ -1,0 +1,9 @@
+git_protocol: https
+editor: !!null mvim
+prompt: disabled
+pager:
+aliases:
+  p: pr list
+  pc: pr create
+  c: pr checks
+  i: issue list
