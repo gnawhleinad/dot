@@ -45,6 +45,8 @@ for b in ag googler hub lastpass-cli tab youtube-dl; do
   . $(get_path ${b})/etc/bash_completion.d/${bc}
 done
 
+[ -f ~/.fzf.bash ] && . ~/.fzf.bash
+
 if [[ "$HOSTNAME" == "vader" ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 elif [[ "$HOSTNAME" == "snoke" ]]; then
