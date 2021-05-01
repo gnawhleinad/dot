@@ -9,3 +9,6 @@ when = "tab --starship"
 shell = ["bash"]
 format = "[($output) ↦]($style) "
 style = "bold blue"
+
+[nodejs]
+command_timeout = 700
