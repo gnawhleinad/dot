@@ -6,11 +6,19 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 HOMEBREW_PREFIX=$(brew --prefix)
-exists() {
+exists_brew() {
   [ -d "${HOMEBREW_PREFIX}/opt/${1}" ]
 }
+exists() {
+  exists_brew "${1}" || command -v "${1}" &>/dev/null
+}
 get_path() {
-  echo "${HOMEBREW_PREFIX}/opt/${1}"
+  if exists_brew "${1}"; then
+    echo "${HOMEBREW_PREFIX}/opt/${1}"
+  else
+    # TODO
+    exit 1
+  fi
 }
 
 if exists bash-completion; then
@@ -59,7 +67,7 @@ fi
 
 export HISTCONTROL=ignorespace
 
-if exists macvim; then
+if exists macvim || exists mvim; then
   export EDITOR="mvim -v"
   alias mvim="mvim -v"
 fi
