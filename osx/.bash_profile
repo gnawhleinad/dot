@@ -6,8 +6,12 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 HOMEBREW_PREFIX=$(brew --prefix)
+HOMEBREW_CASK_PREFIX="/usr/local/Caskroom"
 exists_brew() {
   [ -d "${HOMEBREW_PREFIX}/opt/${1}" ]
+}
+exists_brew_cask() {
+  [ -d "${HOMEBREW_CASK_PREFIX}/${1}" ]
 }
 exists() {
   exists_brew "${1}" || command -v "${1}" &>/dev/null
@@ -53,6 +57,11 @@ for b in ag googler hub lastpass-cli tab youtube-dl; do
   . $(get_path ${b})/etc/bash_completion.d/${bc}
 done
 
+if exists_brew_cask google-cloud-sdk; then
+    . ${HOMEBREW_CASK_PREFIX}/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc
+    . ${HOMEBREW_CASK_PREFIX}/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc
+fi
+
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
 if [[ "$HOSTNAME" == "vader" ]]; then
@@ -75,7 +84,12 @@ fi
 export CODE=$HOME/code
 
 command -v rbenv >/dev/null 2>&1 && eval "$(rbenv init - --no-rehash bash)"
-command -v pyenv >/dev/null 2>&1 && eval "$(pyenv init - --no-rehash bash)"
+command -v pyenv >/dev/null 2>&1 && {
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  eval "$(pyenv init --path)"
+  eval "$(pyenv init - --no-rehash bash)"
+}
 command -v nodenv >/dev/null 2>&1 && eval "$(nodenv init - --no-rehash bash)"
 
 if command -v goenv >/dev/null 2>&1; then
