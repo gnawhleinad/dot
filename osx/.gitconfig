@@ -20,3 +20,5 @@
         path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
 [includeIf "gitdir:~/code/dd-experiment-626/"]
         path = ~/code/gnawhleinad/dot/osx/.gitconfigs/dangerdevices
+[core]
+	autocrlf = input
