@@ -66,3 +66,7 @@ if has('gui_running')
 endif
 
 nnoremap <S-t> :vertical rightb terminal<CR>
+nnoremap t :below terminal<CR>
+
+command! Sh new | setlocal bt=nofile bh=wipe nobl noswapfile nu
+command! Sv vnew | setlocal bt=nofile bh=wipe nobl noswapfile nu
