@@ -4,6 +4,14 @@ module.exports = {
     {
       match: /dangerdevices.net/,
       browser: "qutebrowser"
-    }
+    },
+    {
+      match: /github.com\/dangerdevices/,
+      browser: "qutebrowser"
+    },
+    {
+      match: /zoom.us/,
+      browser: "qutebrowser"
+    },
   ]
 }
