@@ -68,5 +68,8 @@ endif
 nnoremap <S-t> :vertical rightb terminal<CR>
 nnoremap t :below terminal<CR>
 
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 command! Sh new | setlocal bt=nofile bh=wipe nobl noswapfile nu
 command! Sv vnew | setlocal bt=nofile bh=wipe nobl noswapfile nu

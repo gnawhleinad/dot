@@ -1,6 +1,6 @@
 DIR="$(cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" >/dev/null 2>&1 && pwd)"
 
-export PATH=/usr/local/opt/yq@3/bin:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -101,8 +101,7 @@ if command -v goenv >/dev/null 2>&1; then
   export PATH="$PATH:$GOPATH/bin"
 fi
 
-exists rustup-init && export PATH="$HOME/.cargo/bin:$PATH"
-
+exists rustup-init &&
 [ -f ~/.config/tabtab/serverless.bash ] && . ~/.config/tabtab/serverless.bash
 [ -f ~/.config/tabtab/sls.bash ] && . ~/.config/tabtab/sls.bash
 [ -f ~/.config/tabtab/slss.bash ] && . ~/.config/tabtab/slss.bash
@@ -163,6 +162,38 @@ if [[ -e "$HOME/.ssh/config" ]]; then
     tr ' ' '\n')" scp sftp ssh
 fi
 
-alias lockscreen='/System/Library/CoreServices/"Menu Extras"/User.menu/Contents/Resources/CGSession -suspend'
+alias lockscreen='pmset displaysleepnow'
+
+zoom() {
+  agenda=$(gcalcli agenda \
+    --tsv \
+    --details location \
+    --details description \
+    $(date "+%Y-%m-%dT%H:%M") $(date -v+15M "+%Y-%m-%dT%H:%M"))
+  if [[ -z "${agenda}" ]]; then
+    echo "no meetings \o/"
+    return
+  fi
+
+  candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $6}')
+  if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
+    candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $7}')
+    if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
+      echo "ERROR: missing zoom.us meeting"
+      echo -E "${agenda}"
+    fi
+  fi
+
+  re="https[^ ]+\/([[:digit:]]+)"
+  if [[ $candidate =~ $re ]]; then
+    open "zoommtg://zoom.us/join?confno=${BASH_REMATCH[1]}"
+    return
+  fi
+
+  echo "ERROR: unable to parse zoom.us meeting"
+  echo -E "${agenda}"
+}
+command -v gcalcli >/dev/null 2>&1 && alias zoom=zoom
 
 eval "$(starship init bash)"
+. "$HOME/.cargo/env"

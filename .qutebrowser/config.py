@@ -11,3 +11,5 @@ c.url.searchengines = {
 
 c.editor.command = ["mvim", "-f", "{file}", "-c", "normal {line}G{column0}l"]
 config.bind("<Ctrl-e>", "edit-text", mode="insert")
+
+c.input.insert_mode.auto_leave = False
