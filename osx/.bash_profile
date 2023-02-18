@@ -8,7 +8,7 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 
 HOMEBREW_PREFIX=$(brew --prefix)
-HOMEBREW_CASK_PREFIX="/usr/local/Caskroom"
+HOMEBREW_CASK_PREFIX="${HOMEBREW_PREFIX}/Caskroom"
 exists_brew() {
   [ -d "${HOMEBREW_PREFIX}/opt/${1}" ]
 }
@@ -42,11 +42,10 @@ if exists git; then
   GIT_PS1='\[\e[0;31m\]$(__git_ps1)\[\e[0m\]'
 fi
 
-for b in ag googler hub lastpass-cli tab youtube-dl; do
+for b in googler hub lastpass-cli tab youtube-dl; do
   ! exists $b && continue
 
   case $b in
-    ag)           bc="ag.bashcomp.sh" ;;
     gh)           bc="gh" ;;
     googler)      bc="googler-completion.bash" ;;
     hub)          bc="hub.bash_completion.sh" ;;
@@ -65,6 +64,10 @@ if exists_brew_cask google-cloud-sdk; then
 fi
 
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
+if exists rg; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='-m --height 50% --border'
+fi
 
 if [[ "$HOSTNAME" =~ ^vader ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
@@ -77,11 +80,6 @@ elif [[ "$HOSTNAME" == "sidious" ]]; then
 fi
 
 export HISTCONTROL=ignorespace
-
-if exists macvim || exists mvim; then
-  export EDITOR="mvim -v"
-  alias mvim="mvim -v"
-fi
 
 export CODE=$HOME/code
 

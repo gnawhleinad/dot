@@ -1,39 +1,15 @@
-.PHONY: coc.nvim
-coc.nvim: ~/.vim/bundle/coc.nvim
-	cd $<; \
-	  yarn install
-
-.PHONY: command-t
-command-t: ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
-	cd $<; \
-	  make clean; \
-	  if [[ "$${OSTYPE}" =~ darwin.* ]]; then \
-	    $$(brew --prefix ruby@3.1)/bin/ruby extconf.rb; \
-	  elif [[ -f /etc/arch-release ]]; then \
-	    ruby extconf.rb; \
-	  fi; \
-	  make
-
 .PHONY: qutebrowser
 qutebrowser:
 	if [[ -f /etc/arch-release ]]; then \
 		cp .qutebrowser/config.py ~/.config/qutebrowser/; \
 	fi
 
-.PHONY: vim-go
-vim-go: ~/.vim/bundle/vim-go
-	cd $<; \
-	  git fetch origin v1.23; \
-	  git checkout FETCH_HEAD
-
-.PHONY: vundle
-vundle: ~/.vimrc
-	vim +PluginInstall +qall
-
 .PHONY: youcompleteme
-youcompleteme: ~/.vim/bundle/YouCompleteMe
-	cd $<; \
-	  python3 install.py \
+youcompleteme: ~/.config/nvim/plugged/YouCompleteMe
+	python3.10 -m pip install setuptools; \
+	  python3.10 -m pip install --upgrade pynvim; \
+	  cd $<; \
+	  python3.10 install.py \
 	    --clangd-completer \
 	    --ts-completer \
 	    --rust-completer

@@ -1,5 +1,7 @@
 .DS_Store
 
-.vim/.netrwhist
-.vim/black
-.vim/bundle/
+.config/nvim/plugged
+.config/nvim/.netrwhist
+
+.qutebrowser/bookmarks
+.qutebrowser/quickmarks
