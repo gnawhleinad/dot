@@ -1,6 +1,8 @@
 DIR="$(cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" >/dev/null 2>&1 && pwd)"
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
@@ -64,7 +66,7 @@ fi
 
 [ -f ~/.fzf.bash ] && . ~/.fzf.bash
 
-if [[ "$HOSTNAME" == "vader" ]]; then
+if [[ "$HOSTNAME" =~ ^vader ]]; then
   export PS1='(｡▼皿▼): \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
 elif [[ "$HOSTNAME" == "snoke" ]]; then
   export PS1='●~*: \[\e[1m\]\W\[\e[0m\]'$GIT_PS1'\$ '
