@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+if [ $# -ge 1 -a -f "$1" ]; then
+  raw="$1"
+  [ ! -e $raw ] && {
+    echo "ERROR: invalid file"
+    exit 1
+  }
+else
+  raw=$(mktemp)
+  cat - >$raw
+fi
+
+set -u
+
+fold -s -w 80 "${raw}" |\
+  sed -E 's,[ '$'\t'']+$,,g'
