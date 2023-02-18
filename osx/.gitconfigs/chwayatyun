@@ -1,8 +1,6 @@
 [user]
 	name = Daniel Hwang
 	email = daniel@chwayatyun.com
-	signingkey = 73AD438610486DAA
-[commit]
-	gpgsign = true
+	signingkey = ~/.ssh/chwayatyun.pub
 [github]
 	user = gnawhleinad

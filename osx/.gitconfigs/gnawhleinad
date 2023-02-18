@@ -1,8 +1,6 @@
 [user]
 	name = Daniel Hwang
 	email = danielleehwang@gmail.com
-	signingkey = 678563C9BB0E60C0
-[commit]
-	gpgsign = true
+	signingkey = ~/.ssh/gnawhleinad.pub
 [github]
 	user = gnawhleinad
