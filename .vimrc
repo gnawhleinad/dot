@@ -27,6 +27,7 @@ Plugin 'kana/vim-textobj-user'
 Plugin 'jceb/vim-textobj-uri'
 Plugin 'mattn/vim-sqlfmt'
 Plugin 'tyru/open-browser.vim'
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 
 call vundle#end()
 filetype plugin indent on

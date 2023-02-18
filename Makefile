@@ -1,3 +1,8 @@
+.PHONY: coc.nvim
+coc.nvim: ~/.vim/bundle/coc.nvim
+	cd $<; \
+	  yarn install
+
 .PHONY: command-t
 command-t: ~/.vim/bundle/command-t/ruby/command-t/ext/command-t
 	cd $<; \
