@@ -164,36 +164,36 @@ fi
 
 alias lockscreen='pmset displaysleepnow'
 
-zoom() {
-  agenda=$(gcalcli agenda \
-    --tsv \
-    --details location \
-    --details description \
-    $(date "+%Y-%m-%dT%H:%M") $(date -v+15M "+%Y-%m-%dT%H:%M"))
-  if [[ -z "${agenda}" ]]; then
-    echo "no meetings \o/"
-    return
-  fi
-
-  candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $6}')
-  if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
-    candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $7}')
-    if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
-      echo "ERROR: missing zoom.us meeting"
-      echo -E "${agenda}"
-    fi
-  fi
-
-  re="https[^ ]+\/([[:digit:]]+)"
-  if [[ $candidate =~ $re ]]; then
-    open "zoommtg://zoom.us/join?confno=${BASH_REMATCH[1]}"
-    return
-  fi
-
-  echo "ERROR: unable to parse zoom.us meeting"
-  echo -E "${agenda}"
-}
-command -v gcalcli >/dev/null 2>&1 && alias zoom=zoom
+# zoom() {
+#   agenda=$(gcalcli agenda \
+#     --tsv \
+#     --details location \
+#     --details description \
+#     $(date "+%Y-%m-%dT%H:%M") $(date -v+15M "+%Y-%m-%dT%H:%M"))
+#   if [[ -z "${agenda}" ]]; then
+#     echo "no meetings \o/"
+#     return
+#   fi
+# 
+#   candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $6}')
+#   if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
+#     candidate=$(echo -E "${agenda}" | head -n1 | awk -F'\t' '{print $7}')
+#     if [[ -z "$candidate" ]] && [[ "$candidate" =~ http ]]; then
+#       echo "ERROR: missing zoom.us meeting"
+#       echo -E "${agenda}"
+#     fi
+#   fi
+# 
+#   re="https[^ ]+\/([[:digit:]]+)"
+#   if [[ $candidate =~ $re ]]; then
+#     open "zoommtg://zoom.us/join?confno=${BASH_REMATCH[1]}"
+#     return
+#   fi
+# 
+#   echo "ERROR: unable to parse zoom.us meeting"
+#   echo -E "${agenda}"
+# }
+# command -v gcalcli >/dev/null 2>&1 && alias zoom=zoom
 
 eval "$(starship init bash)"
 . "$HOME/.cargo/env"
