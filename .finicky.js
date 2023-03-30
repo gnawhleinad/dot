@@ -11,7 +11,7 @@ module.exports = {
     },
     {
       match: /zoom.us/,
-      browser: "qutebrowser"
+      browser: "us.zoom.xos"
     },
   ]
 }
