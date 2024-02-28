@@ -2,6 +2,9 @@ DIR="$(cd "$(dirname "$(readlink "${BASH_SOURCE[0]}")")" >/dev/null 2>&1 && pwd)
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
+shopt -s histappend
+shopt -s histverify
+
 export PATH=/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:$PATH
 
 export CLICOLOR=1
@@ -143,6 +146,8 @@ git_force_reset() {
   git submodule update --init --recursive
 }
 alias git-force-reset=git_force_reset
+
+alias cdp='cd "$(git rev-parse --show-toplevel)"'
 
 mdquote() {
   pbpaste | awk '{ print "> " $0 }'
