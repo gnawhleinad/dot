@@ -169,6 +169,9 @@ fi
 
 alias lockscreen='pmset displaysleepnow'
 
+alias ssh='kitty +kitten ssh'
+alias icat="kitty +kitten icat"
+
 # zoom() {
 #   agenda=$(gcalcli agenda \
 #     --tsv \
