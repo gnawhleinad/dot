@@ -12,5 +12,12 @@ module.exports = {
               profile: "Default"
       }
     },
+    {
+      match: /github.com/,
+      browser: {
+              name: "Google Chrome",
+              profile: "Default"
+      }
+    },
   ]
 }
