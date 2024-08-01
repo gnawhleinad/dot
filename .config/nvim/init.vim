@@ -25,6 +25,7 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'jceb/vim-textobj-uri'
   Plug 'mattn/vim-sqlfmt'
   Plug 'tyru/open-browser.vim'
+  Plug 'tpope/vim-surround'
 call plug#end()
 
 filetype plugin indent on
@@ -69,9 +70,6 @@ nmap gx <Plug>(openbrowser-smart-search)
 vmap gx <Plug>(openbrowser-smart-search)
 
 set clipboard=unnamed
-
-nnoremap <S-t> :vertical rightb terminal<CR>
-nnoremap t :below terminal<CR>
 
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
