@@ -29,3 +29,5 @@
 	gpgsign = true
 [gpg "ssh"]
 	allowedSignersFile = ~/code/gnawhleinad/dot/.config/git/allowed_signers
+[init]
+	defaultBranch = main
