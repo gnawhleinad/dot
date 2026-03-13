@@ -119,6 +119,8 @@ hotkey.bind(mash, 'L', function() push_window('right') end)
 hotkey.bind(mash, 'N', function() next_screen() end)
 hotkey.bind(mash, 'P', function() next_screen() end)
 
+hotkey.bind(mash, "M", function() hs.grid.show() end)
+
 mash = {"cmd", "ctrl", "shift"}
 
 hotkey.bind(mash, 'J', function() size_window('min') end)
