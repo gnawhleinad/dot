@@ -2,7 +2,6 @@ local hotkey = require "hs.hotkey"
 local grid = require "hs.grid"
 local window = require "hs.window"
 local screen = require "hs.screen"
-local spaces = require("hs.spaces")
 
 grid.GRIDWIDTH = 8
 grid.GRIDHEIGHT = 2
@@ -110,28 +109,6 @@ local function next_screen()
   win:moveToScreen(win:screen():next())
 end
 
-local function switch_space(d)
-  local screen = hs.screen.mainScreen()
-  local all = spaces.spacesForScreen(screen)
-  local current = spaces.focusedSpace()
-
-  for i, id in ipairs(all) do
-    if id == current then
-      if i > 1 then
-        if d == 'left' then
-          next_i = i - 1
-        elseif d == 'right' then
-          next_i = i + 1
-        end
-
-        spaces.gotoSpace(all[next_i])
-      end
-
-      break
-    end
-  end
-end
-
 mash = {"cmd", "ctrl"}
 
 hotkey.bind(mash, 'H', function() push_window('left') end)
@@ -153,7 +130,3 @@ mash = {"ctrl", "shift"}
 
 hotkey.bind(mash, 'J', function() move_window('down') end)
 hotkey.bind(mash, 'K', function() move_window('up') end)
-
-mash = {"cmd", "shift"}
-hotkey.bind(mash, 'H', function() switch_space('left') end)
-hotkey.bind(mash, 'L', function() switch_space('right') end)
