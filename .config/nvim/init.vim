@@ -7,14 +7,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'mileszs/ack.vim'
   Plug 'preservim/nerdcommenter'
-  Plug 'wting/rust.vim'
-  Plug 'pangloss/vim-javascript'
-  Plug 'kchmck/vim-coffee-script'
-  Plug 'wookiehangover/jshint.vim'
-  Plug 'digitaltoad/vim-jade'
-  Plug 'cespare/vim-toml'
-  Plug 'fatih/vim-go'
-  Plug 'vim-ruby/vim-ruby'
+  Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
   Plug 'rking/ag.vim'
   Plug 'tpope/vim-dispatch'
   Plug 'bling/vim-airline'
@@ -23,9 +18,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'eiginn/netrw'
   Plug 'kana/vim-textobj-user'
   Plug 'jceb/vim-textobj-uri'
-  Plug 'mattn/vim-sqlfmt'
   Plug 'tyru/open-browser.vim'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
 call plug#end()
 
 filetype plugin indent on
@@ -76,3 +71,5 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 command! Sh new | setlocal bt=nofile bh=wipe nobl noswapfile nu
 command! Sv vnew | setlocal bt=nofile bh=wipe nobl noswapfile nu
+
+lua require('init')
