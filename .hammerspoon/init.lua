@@ -127,5 +127,6 @@ hotkey.bind(mash, 'J', function() size_window('min') end)
 hotkey.bind(mash, 'K', function() size_window('max') end)
 
 mash = {"ctrl", "shift"}
+
 hotkey.bind(mash, 'J', function() move_window('down') end)
 hotkey.bind(mash, 'K', function() move_window('up') end)
